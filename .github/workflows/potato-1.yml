@@ -1,0 +1,26 @@
+name: potato-1
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - 426-fix-la-defense-actions-workflow-condition
+
+jobs:
+  build-and-push-backend:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - name: Check Out Repository
+      uses: actions/checkout@v4
+      
+    - name: Log Test Message
+      run: |
+        echo "This is a test message"
+        echo "Current date and time: $(date)"
+        echo "GitHub context: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref }}"
+
+
